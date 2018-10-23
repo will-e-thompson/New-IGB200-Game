@@ -90,10 +90,12 @@ public class UI : MonoBehaviour {
         }
         else if (guest.GetComponent<Guest>().rash == true && manager.tglRash.isOn == false)
         {
+            manager.score -= 1;
             rashWrong.gameObject.SetActive(true);
         }
         else if (guest.GetComponent<Guest>().rash == false && manager.tglRash.isOn == true)
         {
+            manager.score -= 1;
             rashWrong.gameObject.SetActive(true);
         }
 
@@ -104,10 +106,12 @@ public class UI : MonoBehaviour {
         }
         else if (guest.GetComponent<Guest>().redEyes == true && manager.tglRedEyes.isOn == false)
         {
+            manager.score -= 1;
             eyesWrong.gameObject.SetActive(true);
         }
         else if (guest.GetComponent<Guest>().redEyes == false && manager.tglRedEyes.isOn == true)
         {
+            manager.score -= 1;
             eyesWrong.gameObject.SetActive(true);
         }
 
@@ -119,10 +123,12 @@ public class UI : MonoBehaviour {
         }
         else if (guest.GetComponent<Guest>().cough == true && manager.tglCough.isOn == false)
         {
+            manager.score -= 1;
             coughWrong.gameObject.SetActive(true);
         }
         else if (guest.GetComponent<Guest>().cough == false && manager.tglCough.isOn == true)
         {
+            manager.score -= 1;
             coughWrong.gameObject.SetActive(true);
         }
         
@@ -133,11 +139,23 @@ public class UI : MonoBehaviour {
         }
         else if (guest.GetComponent<Guest>().runnyNose == true && manager.tglRunnyNose.isOn == false)
         {
+            manager.score -= 1;
             noseWrong.gameObject.SetActive(true);
         }
         else if (guest.GetComponent<Guest>().runnyNose == false && manager.tglRunnyNose.isOn == true)
         {
+            manager.score -= 1;
             noseWrong.gameObject.SetActive(true);
+        }
+
+        if (guest.GetComponent<Guest>().food == true)
+        {            
+            manager.mood.value += 10;
+        }
+
+        if (guest.GetComponent<Guest>().present == true)
+        {
+            manager.score += 1;
         }
 
         if (guestsLetIn == 1)
@@ -182,8 +200,7 @@ public class UI : MonoBehaviour {
         }
 
         manager.examineOver = true;
-        btnContinue.gameObject.SetActive(true);       
-
+        btnContinue.gameObject.SetActive(true);     
     }
 
     // Add to score if choices were correct
@@ -215,10 +232,12 @@ public class UI : MonoBehaviour {
         }
         else if (guest.GetComponent<Guest>().rash == true && manager.tglRash.isOn == false)
         {
+            manager.score -= 1;
             rashWrong.gameObject.SetActive(true);
         }
         else if (guest.GetComponent<Guest>().rash == false && manager.tglRash.isOn == true)
         {
+            manager.score -= 1;
             rashWrong.gameObject.SetActive(true);
         }
 
@@ -229,10 +248,12 @@ public class UI : MonoBehaviour {
         }
         else if (guest.GetComponent<Guest>().redEyes == true && manager.tglRedEyes.isOn == false)
         {
+            manager.score -= 1;
             eyesWrong.gameObject.SetActive(true);
         }
         else if (guest.GetComponent<Guest>().redEyes == false && manager.tglRedEyes.isOn == true)
         {
+            manager.score -= 1;
             eyesWrong.gameObject.SetActive(true);
         }
 
@@ -244,10 +265,12 @@ public class UI : MonoBehaviour {
         }
         else if (guest.GetComponent<Guest>().cough == true && manager.tglCough.isOn == false)
         {
+            manager.score -= 1;
             coughWrong.gameObject.SetActive(true);
         }
         else if (guest.GetComponent<Guest>().cough == false && manager.tglCough.isOn == true)
         {
+            manager.score -= 1;
             coughWrong.gameObject.SetActive(true);
         }
 
@@ -258,17 +281,17 @@ public class UI : MonoBehaviour {
         }
         else if (guest.GetComponent<Guest>().runnyNose == true && manager.tglRunnyNose.isOn == false)
         {
+            manager.score -= 1;
             noseWrong.gameObject.SetActive(true);
         }
         else if (guest.GetComponent<Guest>().runnyNose == false && manager.tglRunnyNose.isOn == true)
         {
+            manager.score -= 1;
             noseWrong.gameObject.SetActive(true);
         }
 
         manager.examineOver = true;
-        btnContinue.gameObject.SetActive(true);
-        
-
+        btnContinue.gameObject.SetActive(true);      
     }
 
     private void CloseDoor()
@@ -311,5 +334,4 @@ public class UI : MonoBehaviour {
         eyesWrong.gameObject.SetActive(false);
         eyesRight.gameObject.SetActive(false);
     }
-
 }

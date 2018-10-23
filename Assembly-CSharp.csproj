@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{78403F07-5275-4A81-4FD6-F716DA8B0F37}</ProjectGuid>
+    <ProjectGuid>{D0F94592-C59A-8ADF-4C29-A25823554DF9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -105,7 +105,6 @@
     <Compile Include="Assets\Scripts\GuestSpawner.cs" />
     <Compile Include="Assets\Scripts\mainMenu.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\TurnOnOff.cs" />
     <Compile Include="Assets\Scripts\UI.cs" />
     <Compile Include="Assets\Store Assets\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\Store Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
@@ -170,16 +169,16 @@
     <None Include="Assets\Store Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\Store Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/will-/Desktop/Uni/Semester 4/IGB200 Applied Game Development/New Kraken Repo/IGB200-game/IGB200-game/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/will-/Desktop/Uni/Semester 4/IGB200 Applied Game Development/New New Kraken Repo/New Outbreak/New-IGB200-Game/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/will-/Desktop/Uni/Semester 4/IGB200 Applied Game Development/New Kraken Repo/IGB200-game/IGB200-game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/will-/Desktop/Uni/Semester 4/IGB200 Applied Game Development/New New Kraken Repo/New Outbreak/New-IGB200-Game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/will-/Desktop/Uni/Semester 4/IGB200 Applied Game Development/New Kraken Repo/IGB200-game/IGB200-game/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/will-/Desktop/Uni/Semester 4/IGB200 Applied Game Development/New New Kraken Repo/New Outbreak/New-IGB200-Game/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/will-/Desktop/Uni/Semester 4/IGB200 Applied Game Development/New Kraken Repo/IGB200-game/IGB200-game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/will-/Desktop/Uni/Semester 4/IGB200 Applied Game Development/New New Kraken Repo/New Outbreak/New-IGB200-Game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

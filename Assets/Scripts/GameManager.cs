@@ -9,9 +9,12 @@ public class GameManager : MonoBehaviour {
     public GameObject player;
     public GameObject doorCamera;
     public GameObject gameOverCamera;
+    public GameObject guest;
     public float partyTimer = 300.0f;
+    public float guestTimer = 10.0f;
     public float doorTimer = 10.0f;
     public Text partyTimerText;
+    public Text doorTimerText;
     public Text winText;
     public Text loseText;
     public Text moodText;
@@ -22,6 +25,7 @@ public class GameManager : MonoBehaviour {
     public Button btnContinue;
     public bool gameOver = false;
     public bool guestAtDoor = false;
+    public bool roundSpawned = false;
 
     public Text rashWrong;
     public Text rashRight;
@@ -117,6 +121,8 @@ public class GameManager : MonoBehaviour {
             ExitExamine();
         }
 
+        guest = GameObject.FindGameObjectWithTag("Guest");
+
         // Update score text box
         txtScore.text = "Score: " + score;
 
@@ -129,79 +135,114 @@ public class GameManager : MonoBehaviour {
         {
             btnAccept.gameObject.SetActive(false);
             btnReject.gameObject.SetActive(false);
-        }
-        
+        }        
 
         partyTimerText.text = "Time: " + partyTimer.ToString("F0");
+        doorTimerText.text = "Door: " + doorTimer.ToString("F0");
 
         EndGame();
 
         if (examineMode == false && guestAtDoor == false)
         {
+            guestTimer -= Time.deltaTime;
+        }
+
+        if (guestTimer <= 0)
+        {
+            roundSpawned = false;
+            round += 1;
+            guestTimer = 10.0f;            
+        }
+
+        SpawnGuests();
+
+        if (guestAtDoor && examineMode == false)
+        {
             doorTimer -= Time.deltaTime;
+            doorTimerText.gameObject.SetActive(true);
+        }
+        else
+        {
+            doorTimerText.gameObject.SetActive(false);
         }
 
         if (doorTimer <= 0)
         {
-            round += 1;
+            Destroy(guest);
+            roundSpawned = true;
+            guestAtDoor = false;
             doorTimer = 10.0f;
+            mood.value -= 20.0f;
         }
 
-        SpawnGuests();
+        if (score < 0)
+        {
+            score = 0;
+        }
     }  
 
     public void SpawnGuests()
     {
         // Make different shapes invisible depending on round
-        if (round == 1 && guestAtDoor == false)
+        if (round == 1 && guestAtDoor == false && roundSpawned == false)
         {
             spawner.GetComponent<GuestSpawner>().SpawnGuest(guest1);
             guestAtDoor = true;
+            roundSpawned = true;
         }
-        if (round == 2 && guestAtDoor == false)
+        if (round == 2 && guestAtDoor == false && roundSpawned == false)
         {
             spawner.GetComponent<GuestSpawner>().SpawnGuest(guest2);
             guestAtDoor = true;
+            roundSpawned = true;
         }
-        if (round == 3 && guestAtDoor == false)
+        if (round == 3 && guestAtDoor == false && roundSpawned == false)
         {
             spawner.GetComponent<GuestSpawner>().SpawnGuest(guest3);
             guestAtDoor = true;
+            roundSpawned = true;
         }
-        if (round == 4 && guestAtDoor == false)
+        if (round == 4 && guestAtDoor == false && roundSpawned == false)
         {
             spawner.GetComponent<GuestSpawner>().SpawnGuest(guest4);
             guestAtDoor = true;
+            roundSpawned = true;
         }
-        if (round == 5)
+        if (round == 5 && guestAtDoor == false && roundSpawned == false)
         {
             spawner.GetComponent<GuestSpawner>().SpawnGuest(guest5);
             guestAtDoor = true;
+            roundSpawned = true;
         }
-        if (round == 6)
+        if (round == 6 && guestAtDoor == false && roundSpawned == false)
         {
             spawner.GetComponent<GuestSpawner>().SpawnGuest(guest6);
             guestAtDoor = true;
+            roundSpawned = true;
         }
-        if (round == 7)
+        if (round == 7 && guestAtDoor == false && roundSpawned == false)
         {
             spawner.GetComponent<GuestSpawner>().SpawnGuest(guest7);
             guestAtDoor = true;
+            roundSpawned = true;
         }
-        if (round == 8)
+        if (round == 8 && guestAtDoor == false && roundSpawned == false)
         {
             spawner.GetComponent<GuestSpawner>().SpawnGuest(guest8);
             guestAtDoor = true;
+            roundSpawned = true;
         }
-        if (round == 9)
+        if (round == 9 && guestAtDoor == false && roundSpawned == false)
         {
             spawner.GetComponent<GuestSpawner>().SpawnGuest(guest9);
             guestAtDoor = true;
+            roundSpawned = true;
         }
-        if (round == 10)
+        if (round == 10 && guestAtDoor == false && roundSpawned == false)
         {
             spawner.GetComponent<GuestSpawner>().SpawnGuest(guest10);
             guestAtDoor = true;
+            roundSpawned = true;
         }
     }
 
@@ -225,7 +266,7 @@ public class GameManager : MonoBehaviour {
         btnAccept.SetActive(true);
         btnReject.SetActive(true);
 
-        
+        doorTimer = 10.0f;        
     }
 
     public void ExitExamine()
@@ -317,5 +358,4 @@ public class GameManager : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
         }
     }
-
 }

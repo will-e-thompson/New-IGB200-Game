@@ -114,19 +114,25 @@ public class Player : MonoBehaviour
         if (other.transform.tag == "Door")
         {
             standingDoor = true;
+            if (GameManager.instance.guestAtDoor == true)
+            {
+                door.GetComponent<Outline>().enabled = true;
+            }
         }
-
         if (other.transform.tag == "Window 1")
         {
             standingWindow1 = true;
+            window1.GetComponent<Outline>().enabled = true;
         }
         if (other.transform.tag == "Window 2")
         {
             standingWindow2 = true;
+            window2.GetComponent<Outline>().enabled = true;
         }
         if (other.transform.tag == "Window 3")
         {
             standingWindow3 = true;
+            window3.GetComponent<Outline>().enabled = true;
         }
     }
 
@@ -136,18 +142,22 @@ public class Player : MonoBehaviour
         if (other.transform.tag == "Door")
         {
             standingDoor = false;
+            door.GetComponent<Outline>().enabled = false;
         }
         if (other.transform.tag == "Window 1")
         {
             standingWindow1 = false;
+            window1.GetComponent<Outline>().enabled = false;
         }
         if (other.transform.tag == "Window 2")
         {
             standingWindow2 = false;
+            window2.GetComponent<Outline>().enabled = false;
         }
         if (other.transform.tag == "Window 3")
         {
             standingWindow3 = false;
+            window3.GetComponent<Outline>().enabled = false;
         }
     }
 
@@ -170,6 +180,7 @@ public class Player : MonoBehaviour
             window1.transform.Translate(0, -1, 0);
             window1Up = false;
             GameManager.instance.mood.value += 10;
+            GameManager.instance.outbreak.value += 10;
         }        
     }
 
@@ -187,6 +198,7 @@ public class Player : MonoBehaviour
             window2.transform.Translate(0, -1, 0);
             window2Up = false;
             GameManager.instance.mood.value += 10;
+            GameManager.instance.outbreak.value += 10;
         }
     }
 
@@ -204,6 +216,7 @@ public class Player : MonoBehaviour
             window3.transform.Translate(0, -1, 0);
             window3Up = false;
             GameManager.instance.mood.value += 10;
+            GameManager.instance.outbreak.value += 10;
         }
 
     }
